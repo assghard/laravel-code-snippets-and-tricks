@@ -207,14 +207,19 @@ Add trait to your project: [Searchable trait implementation](/Traits/Searchable.
 ```
 
 ```php
-    # Just an example
-    # Find pages using trait in controller/service
+    # Example 1. Find pages using `search()` method in controller/service
 
     $page = Page::search('PHRASE_HERE')->first();
 
     $pagesCollection = Page::with(['tags'])->search('PHRASE_HERE')->get();
 
     $pagesPaginated = Page::with(['tags'])->search('PHRASE_HERE')->paginate(10);
+
+
+    # Example 2. Search by related model 
+    $pages = Page::with(['tags'])->whereHas('tags', function ($q) use ($phrase) {
+        $q->search($phrase);
+    })->get();
 ```
 
 ## BaseEnumTrait trait for Laravel Enums

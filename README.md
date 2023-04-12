@@ -2,7 +2,7 @@
 
 Simple Laravel tips, code snippets, trick and examples
 
-*Update 24 March 2023*
+*Update 12 April 2023*
 
 ## Laravel snippets
 

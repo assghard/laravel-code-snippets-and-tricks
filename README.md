@@ -6,7 +6,7 @@ Simple Laravel tips, code snippets, trick and examples
 
 ## Laravel snippets
 
-- [Laravel helpers](laravel-helpers.md) (2)
+- [Laravel helpers](laravel-helpers.md) (3)
 - [Helpful Traits](laravel-traits.md) (4)
 - [Laravel Enums](laravel-enums.md)
 - [Laravel 2FA](https://github.com/assghard/laravel-2fa)

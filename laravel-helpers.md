@@ -3,6 +3,7 @@
 - [How to use helpers in Laravel](#how-to-use-helpers-in-laravel)
 - [Call Artisan command in background](#call-artisan-command-in-background)
 - [Replace value in array](#replace-value-in-array-recursively)
+- [Parsing data from text helper](#find-string-in-text)
 
 ## How to use helpers in Laravel
 
@@ -114,4 +115,40 @@ Add `helpers.php` file to you project and use `call_in_background` helper in pla
     $result = replace_in_array('yellow', 'cyan', $array); // all "yellow" will be replaced by "cyan"
 ```
 
+## Find string in text
+`find_string_in_text()` helper is usefull in parsing data from text
 
+
+Example text: 
+```
+... The product price is 29 USD. And another text here. The producer is AAA LLC headquartered in London
+```
+
+**Helper implementation:**
+```php
+if (!function_exists('find_string_in_text')) {
+    function find_string_in_text(string $content, string $startText, string $endText)
+    {
+        $strStart = strpos($content, $startText);
+        if ($strStart === false) {
+            return null;
+        }
+
+        $strEnd = strpos($content, $endText, $strStart);
+
+        return trim(substr($content, $strStart + strlen($startText), $strEnd - $strStart - strlen($startText)));
+    }
+}
+```
+
+**Usage:**
+```php
+    $content = file_get_contents('EXAMPLE_PRODUCT_URL_HERE');
+
+    $price = find_string_in_text($content, 'price is ', ' USD.');
+    dd($price); // "29"
+
+    $producerName = find_string_in_text($content, 'producer is ', 'headquartered');
+    dd($producerName); // "AAA LLC"
+    
+```

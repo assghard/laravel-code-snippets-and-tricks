@@ -143,7 +143,7 @@ if (!function_exists('find_string_in_text')) {
 
 **Usage:**
 ```php
-    $content = file_get_contents('EXAMPLE_PRODUCT_URL_HERE');
+    $content = file_get_contents('Just an example text here. The product price is 29 USD. And another text here. The producer is AAA LLC headquartered in London');
 
     $price = find_string_in_text($content, 'price is ', ' USD.');
     dd($price); // "29"

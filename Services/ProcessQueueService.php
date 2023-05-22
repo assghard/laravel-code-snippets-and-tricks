@@ -127,6 +127,9 @@ class ProcessQueueService
                 $this->phpPath = env('PHP_PATH');
             } else {
                 $this->phpPath = $this->getPhpExecutable();
+                if (empty($this->phpPath)) {
+                    $this->phpPath = 'php';
+                }
             }
         }
     }

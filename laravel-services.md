@@ -15,7 +15,7 @@ Features:
 * **Integration with Laravel**: Designed specifically for Laravel, this service seamlessly integrates with your existing Laravel project, leveraging its features, such as the Artisan commands and Symfony processes.
 
 **Service implementation:**
-See: [ProcessQueueService.php](Services\ProcessQueueService.php)
+See: [ProcessQueueService.php](https://github.com/assghard/laravel-code-snippets-and-tricks/blob/master/Services/ProcessQueueService.php)
 
 **Example:**
 

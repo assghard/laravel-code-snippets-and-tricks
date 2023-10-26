@@ -2,13 +2,13 @@
 
 Simple Laravel tips, code snippets, trick and examples
 
-*Update 22 May 2023*
+*Update 26 October 2023*
 
 ## Laravel snippets
 
 - [Laravel helpers](laravel-helpers.md) (3)
 - [Helpful Traits](laravel-traits.md) (4)
 - [Laravel Enums](laravel-enums.md)
-- [Laravel Services](laravel-services.md) (2)
+- [Laravel Services](laravel-services.md) (3)
 - [Laravel 2FA](https://github.com/assghard/laravel-2fa)
 - [PHP Geocoders](https://github.com/assghard/php-geocoders)

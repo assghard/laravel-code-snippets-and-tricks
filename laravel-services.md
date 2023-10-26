@@ -3,6 +3,8 @@
 [Go to main README](README.md)
 
 - [ProcessQueue Service for Artisan commands](#processqueue-Service-for-Artisan-commands)
+- [Selenoid Service]
+- [PdoQuery Service for no Eloquent queries]
 
 ## ProcessQueue Service for Artisan commands
 This service allows running Artisan commands in background in asynchronous processes. Each command is a separated process. This service is helpful when you need to run a lot of processes in one command. Each process is independent.

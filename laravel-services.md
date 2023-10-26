@@ -4,7 +4,7 @@
 
 - [ProcessQueue Service for Artisan commands](#processqueue-Service-for-Artisan-commands)
 - [Selenoid Service]
-- [PdoQuery Service for no Eloquent queries]
+- [PdoQuery Service for no Eloquent queries](#pdoquery-service-for-no-eloquent-queries)
 
 ## ProcessQueue Service for Artisan commands
 This service allows running Artisan commands in background in asynchronous processes. Each command is a separated process. This service is helpful when you need to run a lot of processes in one command. Each process is independent.
@@ -53,3 +53,29 @@ class MyPrimaryCommand extends Command
 ```
 
 First of all you need to create a primary command: `my-command:primary`. In that command you fetch needed data and in foreach you add secondary command (`my-command:secondary-process {item_id}`) into the processes queue. The `$processQueueService->start();` method starts processing the queue
+
+
+## PdoQuery Service for no Eloquent queries
+In case you need to select a lot of data from database and process them row by row you can use `PdoQueryService`. Remember, in this approach, Eloquent, Scopes, Events and other features will not work.
+
+```php
+...
+use App\Services\PdoQueryService;
+...
+
+
+$stmt = (new PdoQueryService())->prepareQueryStatement('SELECT * FROM users');
+
+// fetch results one by one (in case you have large amount of data in the table)
+while ($user = $stmt->fetchObject()) {
+    echo $user->email.PHP_EOL;
+}
+
+// fetch all results in one array
+$arrayOfAllUsers = (new PdoQueryService())->fetchAllResultsFromStatement($stmt);
+foreach ($arrayOfAllUsers as $user) {
+    echo $user['email'].PHP_EOL;
+}
+
+
+```

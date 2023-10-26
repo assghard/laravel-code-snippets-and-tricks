@@ -28,9 +28,9 @@ class PdoQueryService
         $this->dbConnection = config('database.default');
     }
 
-    public function executeQuery(string $query): PDOStatement
+    public function prepareQueryStatement(string $sqlQuery): PDOStatement
     {
-        $stmt = $this->pdo->prepare($query);
+        $stmt = $this->pdo->prepare($sqlQuery);
         $stmt->execute();
 
         return $stmt;
